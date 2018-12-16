@@ -1,4 +1,5 @@
-/*Given sorted two singly linked lists. 
+/*
+  Given sorted two singly linked lists. 
   Return sorted list of both lists merged.
 
 	Input
@@ -9,11 +10,12 @@
   * Attempt 1 Output:
       [1 4]
 ------------------------------------------------------------------------------*/
-/*
-  Approach: 
+/*-----------------------------------------------------------------------------
+  Approach: If either list is not null check value add to result list.
+            If one is null then iterate and append into result list.
   Questions: Will numbers be sorted within provided lists.
   	     
-*/
+------------------------------------------------------------------------------*/
 
 #include <iostream>
 #include <cstidlib>
