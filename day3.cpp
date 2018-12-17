@@ -1,0 +1,18 @@
+/*  Reverse Linkedlist from position m to n in one pass
+
+*/
+/*
+    Approach: Again the sliding window might work. Kinda sucky it the window
+    is entire list though. Maybe solve this case first..
+
+    How to reverse linked list in one pass?
+    Think of head pointer and tail pointer as m and in. 
+    Now if I use some number of trailing and leading pointers I can reverse 
+    order in which the list is linked.
+*/
+#include <iostream>
+
+int main()
+{
+
+}
