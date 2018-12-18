@@ -29,7 +29,7 @@ struct ListNode{
 
 ListNode *ReverseList(ListNode *head, int n, int m)
 {
-  ListNode *new_head = ListNode sentinle(-1);
+  ListNode *new_head = new ListNode(-1);
   new_head->next = head;
   
   ListNode *start = new_head;
@@ -59,5 +59,8 @@ int main()
     pointer to the sentinle node being created. This is so you can assign 
     'new_head' to the 'start' pointer which will be moved to m before executing
     the algorthim.
-
+  * Also the sentinle node is needs to be created on the heap or the compiler
+    yells at me. Not sure why thats the case? Note I try to assign it to a 
+    pointer immeditatly after creation. Don't return it out of this functions 
+    stack tho??
 */
