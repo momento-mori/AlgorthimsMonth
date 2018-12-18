@@ -40,8 +40,9 @@ ListNode *ReverseList(ListNode *head, int n, int m)
   ListNode *current = start->next;
   for(int i = 0; i < n - m; i++){
     ListNode *move = current->next;
-    ...
-    ...
+    current->next = move->next; 
+    move->next = start->next
+    start->next = move;
   }
   return sentinle->next;
 }
