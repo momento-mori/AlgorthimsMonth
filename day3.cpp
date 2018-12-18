@@ -63,4 +63,8 @@ int main()
     yells at me. Not sure why thats the case? Note I try to assign it to a 
     pointer immeditatly after creation. Don't return it out of this functions 
     stack tho??
+	Yeah my thinking was correct there is no reason to declare sentinle on
+	the heap. But that means you need to assign sentinle by reference to 
+	'start' pointer.
+
 */
