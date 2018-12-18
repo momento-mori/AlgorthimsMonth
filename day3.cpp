@@ -11,6 +11,13 @@
     order in which the list is linked.
 
     Questions: Are we guarenteed m & n will be within list range
+
+    Was correct to think I just need 3 pointers to do all the reversing.
+    One on node m-1, m and n. Then loop pointer on m to n; n to m-1; m-1 to n;
+    Do that m-n times and you will have a reversed list at end.
+
+    Note again sentinle node is needed. This I think is to ensure we always 
+    have an m-1 node in our list. Which is needed for the solution.
 */
 #include <iostream>
 
