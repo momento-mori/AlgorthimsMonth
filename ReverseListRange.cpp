@@ -29,6 +29,8 @@ struct ListNode{
 
 ListNode *ReverseList(ListNode *head, int n, int m)
 {
+
+  if(m > n) std::cout << " M must be less than N!" << std::endl; 
   ListNode *new_head = new ListNode(-1);
   new_head->next = head;
   
