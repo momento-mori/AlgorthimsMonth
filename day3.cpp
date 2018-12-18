@@ -29,10 +29,10 @@ struct ListNode{
 
 ListNode *ReverseList(ListNode *head, int n, int m)
 {
-  ListNode sentinle(-1);
-  sentinle->next = head;
+  ListNode *new_head = ListNode sentinle(-1);
+  new_head->next = head;
   
-  ListNode *start = sentinle;
+  ListNode *start = new_head;
   for(int i = 0; i < m-1; i++){
     start = start->next;
   }  
@@ -44,7 +44,7 @@ ListNode *ReverseList(ListNode *head, int n, int m)
     move->next = start->next
     start->next = move;
   }
-  return sentinle->next;
+  return new_head->next;
 }
 
 int main()
@@ -55,4 +55,9 @@ int main()
 /*
      Analysis:
   * Misunderstood the nodes needed. Need refrences to nodes: m, m+1, n NOT m-1
+  * Also screwed up how I created the seninle node. Need to attach a 'new_head'
+    pointer to the sentinle node being created. This is so you can assign 
+    'new_head' to the 'start' pointer which will be moved to m before executing
+    the algorthim.
+
 */
