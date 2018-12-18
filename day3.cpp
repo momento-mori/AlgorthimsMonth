@@ -39,11 +39,19 @@ ListNode *ReverseList(ListNode *head, int n, int m)
   
   ListNode *current = start->next;
   for(int i = 0; i < n - m; i++){
-    
+    ListNode *move = current->next;
+    ...
+    ...
   }
+  return sentinle->next;
 }
 
 int main()
 {
 
 }
+
+/*
+     Analysis:
+  * Misunderstood the nodes needed. Need refrences to nodes: m, m+1, n NOT m-1
+*/
