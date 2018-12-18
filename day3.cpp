@@ -12,6 +12,19 @@
 */
 #include <iostream>
 
+struct ListNode{
+  int val; 
+  ListNode *next; 
+  ListNode(int v) : val(v), next(NULL) { }
+};
+
+ListNode *ReverseList(ListNode *head, int n, int m)
+{
+  
+
+
+}
+
 int main()
 {
 
