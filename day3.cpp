@@ -9,6 +9,8 @@
     Think of head pointer and tail pointer as m and in. 
     Now if I use some number of trailing and leading pointers I can reverse 
     order in which the list is linked.
+
+    Questions: Are we guarenteed m & n will be within list range
 */
 #include <iostream>
 
@@ -20,9 +22,18 @@ struct ListNode{
 
 ListNode *ReverseList(ListNode *head, int n, int m)
 {
+  ListNode sentinle(-1);
+  sentinle->next = head;
   
-
-
+  ListNode *start = sentinle;
+  for(int i = 0; i < m-1; i++){
+    start = start->next;
+  }  
+  
+  ListNode *current = start->next;
+  for(int i = 0; i < n - m; i++){
+    
+  }
 }
 
 int main()
