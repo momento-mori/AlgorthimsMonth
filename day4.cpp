@@ -23,8 +23,13 @@ int minSwap(std::vector<int> &A, std::vector<int> &B)
   if(n != m) std::cout << "STRING MATCH ERR" << std::endl;
   std::vector<int> swaps (n, m), no_swaps(n, m);
   for(int i = 0; i < n; i++){
-    if(A[i-1] > A[i] 
+    if(A[i-1] > A[i] && B[i-1] > B[i]){
+      no_swap[i] = min(no_swap[i], swap[i] + 1);
+      swap[i] =
+    }
+   
   }
+  return min(no_swap.back(), swap.back());
 }
 
 int main()
@@ -42,4 +47,7 @@ int main()
   * Clever think to do here is use vectors for swap and no_swap that way we 
     can pass std::min(swap.back(), no_swap.back()) To use an idomatic way of 
     finding mininum of two lists.
+
+  * Not every freaking if needs an else. You can just make another if instead
+    of working so hard to fit things into 2 conditions.
 ------------------------------------------------------------------------------*/
