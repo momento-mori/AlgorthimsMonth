@@ -6,6 +6,11 @@
    sequences needed to make both strictly increasing.
 
    Note that the swaps must be between A[i] and B[i]
+
+   	Input:
+   A = [1 3 5 4], B = [1 2 3 7]
+  	Output 
+   1 since only have to swap A[3] && B[3]
 */
 
 #include <iostream>
@@ -13,7 +18,13 @@
 
 int minSwap(std::vector<int> &A, std::vector<int> &B)
 {
-
+  int n = A.size(); 
+  int m = B.size();
+  if(n != m) std::cout << "STRING MATCH ERR" << std::endl;
+  std::vector<int> swaps (n, m), no_swaps(n, m);
+  for(int i = 0; i < n; i++){
+    if(A[i-1] > A[i] 
+  }
 }
 
 int main()
