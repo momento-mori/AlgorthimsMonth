@@ -27,7 +27,11 @@ int minSwap(std::vector<int> &A, std::vector<int> &B)
       no_swap[i] = min(no_swap[i], swap[i] + 1);
       swap[i] =
     }
-   
+  
+    if(A[i-1] < B[i] && B[i-1] < A[i]){
+      swap[i] = 
+    }
+     
   }
   return min(no_swap.back(), swap.back());
 }
