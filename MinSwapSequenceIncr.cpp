@@ -19,17 +19,17 @@
 int minSwap(std::vector<int> &A, std::vector<int> &B)
 {
   int vec_len = A.size();
-  std::vector<std::vector<int> > dp = std::vector<std::vector<int> >(vec_len, std::vector<int>(2, INT32_MAX));
+  std::vector<std::vector<int> > dp(vec_len, std::vector<int>(2, INT32_MAX));
   dp[0][0] = 0; 
   dp[0][1] = 1;
   
-  for(int i = 0; i < vec_len; ++i){
+  for(int i = 1; i < vec_len; ++i){
     if(A[i-1] < A[i] && B[i - 1] < B[i]){
-      dp[i][0] = dp[i - 1][0];
-      dp[i][1] = dp[i + 1][1] + 1;
+      dp[i][0] = min(dp[i][1], dp[i - 1][0]);
+      dp[i][1] = min(dp[i][1], dp[i - 1][1] + 1);
     }
   
-    if(A[i - 1] > B[i] && B[i - 1] > A[i]){
+    if(A[i - 1] < B[i] && B[i - 1] < A[i]){
       dp[i][0] = min(dp[i][0], dp[i-1][1]);
       dp[i][1] = min(dp[i][1], dp[i -1][0] + 1); 
     }
@@ -56,4 +56,9 @@ int main()
 
   * Not every freaking if needs an else. You can just make another if instead
     of working so hard to fit things into 2 conditions.
+
+  * Really important to note that in dynamic programming your for loop idx's 
+    start from 1.
+
+
 ------------------------------------------------------------------------------*/
