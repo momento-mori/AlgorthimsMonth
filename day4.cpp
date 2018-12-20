@@ -18,22 +18,24 @@
 
 int minSwap(std::vector<int> &A, std::vector<int> &B)
 {
-  int n = A.size(); 
-  int m = B.size();
-  if(n != m) std::cout << "STRING MATCH ERR" << std::endl;
-  std::vector<int> swaps (n, m), no_swaps(n, m);
-  for(int i = 0; i < n; i++){
-    if(A[i-1] > A[i] && B[i-1] > B[i]){
-      no_swap[i] = min(no_swap[i], swap[i] + 1);
-      swap[i] =
+  int vec_len = A.size();
+  std::vector<std::vector<int> > dp = std::vector<std::vector<int> >(vec_len, std::vector<int>(2, INT32_MAX));
+  dp[0][0] = 0; 
+  dp[0][1] = 1;
+  
+  for(int i = 0; i < vec_len; ++i){
+    if(A[i-1] < A[i] && B[i - 1] < B[i]){
+      dp[i][0] = dp[i - 1][0];
+      dp[i][1] = dp[i + 1][1] + 1;
     }
   
-    if(A[i-1] < B[i] && B[i-1] < A[i]){
-      swap[i] = 
+    if(A[i - 1] > B[i] && B[i - 1] > A[i]){
+      dp[i][0] = min(dp[i][0], dp[i-1][1]);
+      dp[i][1] = min(dp[i][1], dp[i -1][0] + 1); 
     }
-     
   }
-  return min(no_swap.back(), swap.back());
+  
+  return min(dp[vec_len - 1][0], dp[vec_len - 1][1]);
 }
 
 int main()
