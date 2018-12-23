@@ -33,3 +33,9 @@ int main()
 {
 
 }
+
+/*
+   Analysis:
+    Do I fully grasp why implemnting this by incrementing [j++] works? 
+
+*/
