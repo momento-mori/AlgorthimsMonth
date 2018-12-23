@@ -25,8 +25,8 @@ int minSwap(std::vector<int> &A, std::vector<int> &B)
   
   for(int i = 1; i < vec_len; ++i){
     if(A[i-1] < A[i] && B[i - 1] < B[i]){
-      dp[i][0] = min(dp[i][1], dp[i - 1][0]);
-      dp[i][1] = min(dp[i][1], dp[i - 1][1] + 1);
+      dp[i][0] = dp[i - 1][0];
+      dp[i][1] = dp[i - 1][1] + 1;
     }
   
     if(A[i - 1] < B[i] && B[i - 1] < A[i]){
