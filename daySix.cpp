@@ -25,7 +25,20 @@
 
 bool canPartition(std::vector<int> &arr)
 {
+  int sum = 0;
+  for(const auto &K : arr){
+    sum += K;
+  }
 
+  if(sum % 2 == 0){
+    int partOne, partTwo;
+    for(int i = 0; i < arr.size(); i++){
+      
+    }
+  }
+  else{
+    return false;
+  }  
 }
 
 void partitionHelper(std::vector<int> &arr, int begin, int end)
