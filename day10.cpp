@@ -18,18 +18,20 @@
 #include <iostream>
 #include <vector>
 
-int lengthOfLIS(std::vector<int> &nums)
+int lengthOfLIS(std:int lengthOfLIS(std::vector<int> &nums)
 {
   std::vector<int> result;
   int N = nums.size();
-  for(int i = 1; i < N - 1; i++){
-    result[0] = 1;
-    for(int j = 1; j < i - 1; j++){
+  for(int i = 0; i < N; i++){
+    result[i] = 1;
+    for(int j = 0; j < i; j++){
       if(nums[i] > nums[j])
-        result[i] += 1; 
+        // result[i] += 1; attempt 1 obviously wrong. we need max of i & j 
+        //result[i] = max(nums[i], nums[j]);
+        result[i] = max(nums[i]+1, nums[j]);
     }
   }
-  return result;
+  return result[N-1];
 }
 
 int main()
@@ -48,6 +50,11 @@ int main()
       This is done after incrementing the idx of the outer for loop.
     Then on the inner for loop we check for the max of idx and idx-1
       idx and idx-1 are itrs for the for loops being used.
-  
+
+  Having an issue with leetcode and some dumb bug. Think I fully grasph LIS though.
+    Will verify code works when I wake up.
+
+    So working form this how would I implement it with a pair of integers where I only
+    have to run LIS on the second int in the pair (a, b)  
 
 */
