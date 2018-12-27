@@ -1,4 +1,4 @@
-# AlgorthimsMonth
+# AlgorthimsMonth. Started on 12.15
 Data Structure and Algorithim Every Day
 
 1. Merge two sorted singly linkedlists.
