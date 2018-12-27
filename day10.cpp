@@ -20,18 +20,25 @@
 
 int lengthOfLIS(std:int lengthOfLIS(std::vector<int> &nums)
 {
-  std::vector<int> result;
-  int N = nums.size();
-  for(int i = 0; i < N; i++){
+  int N = nums.size(); 
+  std::vector<int> result(N, 1); //Intializing result here fixed leetcode
+  for(int i = 1; i < N; i++){
     result[i] = 1;
     for(int j = 0; j < i; j++){
       if(nums[i] > nums[j])
         // result[i] += 1; attempt 1 obviously wrong. we need max of i & j 
         //result[i] = max(nums[i], nums[j]);
-        result[i] = max(nums[i]+1, nums[j]);
-    }
+        //result[i] = max(nums[i]+1, nums[j]);
+        result[i] = max(result[i], result[j]+1); 
+  
+      }
   }
-  return result[N-1];
+  //return result[N-1];
+  int length = 0;
+  for(int i = 0 i < N-1; i++){
+    length = max(length, result[i]);
+  }
+
 }
 
 int main()
@@ -57,4 +64,8 @@ int main()
     So working form this how would I implement it with a pair of integers where I only
     have to run LIS on the second int in the pair (a, b)  
 
+    Analysis Part 2
+    ----------------
+
+  
 */
