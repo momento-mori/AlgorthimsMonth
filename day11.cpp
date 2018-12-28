@@ -32,22 +32,46 @@ bool isValid(string s)
     return false;
 
   std::stack<char> check;
-  for(int i = 0; i < N-1; i++){
-    if(s.at(i) == '['){
-      //check.push(s.at(i).data());
-      check.push(s.at(i));
-    }
-    else if(s.at(i) == ']');{
-      while(check.top() != '['){
-        check.pop();
-      } 
-    }
-
+  //for(int i = 0; i < N-1; i++){ //range based for loop gives me direct access
+  for(auto &C : s){
+    switch(C){ 
+      case '{':
+        //check.push(C);
+      case '(':
+        //check.push(C);
+      case '[':
+        check.push(C); break;
+      case '}':
+        if(check.empty() || check.top() != '{') return false; else check.pop(); //return true;
+        break;
+      case ')':
+        if(check.empty() || check.top() != '(') return false; else check.pop(); //return true;
+        break;
+      case ']':
+        if(check.empty() || check.top() != '[') return false; else check.pop(); //return true;
+        break;
+      default:
+        continue;
+    }  
   }    
 
-  if(check.empty())
-    return true;
-
+/*
+  for(auto &c : s){
+    if(c == '('){
+      check.push(')');
+    }
+    else if(c == '['){
+      check.push(']');
+    }
+    else if(c == '{'){
+      check.push('}');
+    }
+    else if(check.empty() || check.pop() != c){
+      return false;
+    }
+  }
+*/
+  return check.empty();
 }
 
 int main()
@@ -59,5 +83,21 @@ int main()
     at me and not use a switch statement. And as soon as I started using 
     if else statements it got ugly fast which made me rethink approach as this
     is easy problem.
-
+  
+    Analysis
+  
+public boolean isValid(String s) {
+  Stack<Character> stack = new Stack<Character>();
+  for (char c : s.toCharArray()) {
+    if (c == '(')
+      stack.push(')');
+    else if (c == '{')
+      stack.push('}');
+    else if (c == '[')
+      stack.push(']');
+    else if (stack.isEmpty() || stack.pop() != c)
+      return false;
+  }
+  return stack.isEmpty();
+}
 */
