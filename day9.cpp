@@ -9,6 +9,9 @@
   2
 
   ** Your brain should of mapped this to longest common subsequence **
+    Now that was solved the only difference should be that our iterators 
+    on the for loops correspond to the first pair integer and 
+    the .second iterator is what we use in the max() and if(..) statements
 
 */
 
@@ -18,6 +21,7 @@
 int findLongestChain(std::vector<std::vector<int>> &pairs)
 {
   int result; 
+  const int N = pairs[0].size();
 }
 int main()
 {
