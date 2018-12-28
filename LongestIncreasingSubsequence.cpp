@@ -21,9 +21,12 @@
 int lengthOfLIS(std:int lengthOfLIS(std::vector<int> &nums)
 {
   int N = nums.size(); 
+  if(N < 1)
+    return 0;
+  int length = 1;
   std::vector<int> result(N, 1); //Intializing result here fixed leetcode
   for(int i = 1; i < N; i++){
-    result[i] = 1;
+    //result[i] = 1;
     for(int j = 0; j < i; j++){
       if(nums[i] > nums[j])
         // result[i] += 1; attempt 1 obviously wrong. we need max of i & j 
@@ -32,12 +35,9 @@ int lengthOfLIS(std:int lengthOfLIS(std::vector<int> &nums)
         result[i] = max(result[i], result[j]+1); 
   
       }
+    length = max(result[i], length);
   }
-  //return result[N-1];
-  int length = 0;
-  for(int i = 0 i < N-1; i++){
-    length = max(length, result[i]);
-  }
+  return length;
 
 }
 
@@ -66,6 +66,11 @@ int main()
 
     Analysis Part 2
     ----------------
-
+  There is edge case where nums can have only one element in it. In that case return 
+  1.
+  
+  Also can calucalte the max value function will be returning during outer for loop
+  execution by comapring the value we just cached in our dp result vector with the
+  current best stored max value.
   
 */
