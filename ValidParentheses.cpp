@@ -1,4 +1,5 @@
 /*
+  12.23.18
     20. Valid Parentheses
   Given string containing just '( ) [ ] { }' determine if string is valid.
 

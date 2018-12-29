@@ -1,5 +1,6 @@
 /*-----------------------------------------------------------------------------
-  Peak Index in Mountain Array
+   12.16.18
+  852. Peak Index in Mountain Array
 
   Given an Array A that increases for some time then dercreases;
   find the index at which A[i-1] < A[i] > A[i] > A[i+1]

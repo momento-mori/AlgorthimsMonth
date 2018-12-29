@@ -1,5 +1,5 @@
 /*
-   Partition Equal Subset Sum
+   416. Partition Equal Subset Sum
 
    Given non empty array w only positve integers.
 
@@ -29,20 +29,8 @@ bool canPartition(std::vector<int> &arr)
   for(const auto &K : arr){
     sum += K;
   }
-
-  if(sum % 2 == 0){
-    int partOne, partTwo;
-    for(int i = 0; i < arr.size(); i++){
-      
-    }
-  }
-  else{
-    return false;
-  }  
-}
-
-void partitionHelper(std::vector<int> &arr, int begin, int end)
-{
+  //int sum = accumulate(arr.begin(), arr.end(), 0);
+  
 
 } 
 
@@ -50,3 +38,10 @@ int main()
 {
 
 }
+
+/*
+  So break problem down. To split into two sub arrays given an integer array
+    You need to have what be true?
+      There needs to be even sum of intgers in given array
+      No element can be greater than half the value of the sum.
+*/
