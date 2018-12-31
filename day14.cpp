@@ -6,8 +6,6 @@
   
     Approach:
   Insert each value in tree into hash map thats passed to helper function.
-    
-
 */
 
 #include <iostream>
@@ -20,9 +18,34 @@ struct TreeNode{
 };
 
 
+bool helper(TreeNode *root, int target, std::unoredered_set<int> &sett)
+{
+  
+  if(!root)
+    return false;
+  
+  //int complement = root->val - target; /***   Again with the carless shit   **/
+  int complement = target - root->val; // this can also happen direct in .find(..) 
+  //if(mapp.find(complement) != mapp.end()){
+  if(sett.count(complement)){
+    return true; 
+  }
+  else{
+    unordered_set.insert(root->val, true); 
+    //helper(root->left, target, sett) && helper(root->right, target, sett);  **BEWARE BUGS***
+    //helper(root->left, target, sett) || helper(root->right, target, sett);
+    return helper(root->left, target, sett) || helper(root->right, target, sett);
+  }
+}
 
 bool findTarget(TreeNode *root, int k)
 {
+
+  if(root->val == k)
+    return true;
+  std::unordered_set<int> sett;
+  return helper(root, k, sett);
+
 }
 
 int main()
@@ -30,5 +53,9 @@ int main()
 }
 
 /*
+  ***std::map<class T> is a SORTED container that only allows UNIQUE keys.
+  If you want to have not unique keys then you need unordered map
 
+  
 */
+
