@@ -25,6 +25,7 @@ struct ListNode{
 
 bool isPalindrome(ListNode *head)
 {
+  if(!head->next)
 }
 
 int main()
