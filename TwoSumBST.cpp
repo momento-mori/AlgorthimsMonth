@@ -42,6 +42,8 @@ bool findTarget(TreeNode *root, int k)
 {
 
   // Don't do this stupid shit without reason from now on.
+    //Reason its stupid is what if you have the root == k
+    //but you also have 0 in your set. This returns wrong val.
   /*if(root->val == k)
     return true;*/
   std::unordered_set<int> sett; // O(N^2)
@@ -57,6 +59,8 @@ int main()
   ***std::map<class T> is a SORTED container that only allows UNIQUE keys.
   If you want to have not unique keys then you need unordered map
 
-  
+  Unordered containers are implmeneted as hashmap with O(1) time while
+  oredered containers are implmeneted as self balancing trees with avg
+  O(N log N) time on ops.  
 */
 
