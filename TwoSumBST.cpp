@@ -26,7 +26,6 @@ bool helper(TreeNode *root, int target, std::unoredered_set<int> &sett)
   
   //int complement = root->val - target; /***   Again with the carless shit   **/
   int complement = target - root->val; // this can also happen direct in .find(..) 
-  //if(mapp.find(complement) != mapp.end()){
   if(sett.count(complement)){
     return true; 
   }
