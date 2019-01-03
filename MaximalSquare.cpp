@@ -29,12 +29,13 @@ int maximalSquare(std::vector<std::vector<char>> &matrix)
   for(int i = 1; i < rows; i++){
     for(int j = 1; j < cols; j++){
       if(matrix[i-1][j-1] == '1'){
-        cache[i][j] = min( {cache[i-1][j], cache[i][j-1], cache[i-1][j-1] } );
+        cache[i][j] = min( {cache[i-1][j], cache[i][j-1], cache[i-1][j-1] } )+1;
         result = max(cache[i][j], result);
       }
     }
   }
-  return result;
+//  return result; ** Becareful. ONLY bug thou. Much progress.
+  return result * result;
 }
 
 int main() 
