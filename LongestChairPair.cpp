@@ -22,8 +22,6 @@
   To access the pairs of elements:
     pairs[i][0] < pairs[i][1]
 
-  The problem statest
-
 */
 
 #include <iostream>
@@ -34,19 +32,24 @@ int findLongestChain(std::vector<std::vector<int>> &pairs)
   //int N = pairs[0].size(); ** NOT QUITE SURE WHY THIS IS WRONG.
   int N = pairs.size();
 
-  //std::vector<int> result (N+1, 1); ** WHY IS INITING AT 1 WRONG?
+  std::vector<int> result (N+1, 1); // ** WHY IS INITING AT 1 WRONG?
                                         //your not guarenteed that one exists
-  std::vector<int> result (N+1, 0);  
+  // std::vector<int> result (N+1, 0); //uhh.. guess its not? accepted answer
+                                       //was initied at 1 like above...  
   
   sort(pairs.begin(), paris.end(), cmp);
  
-  for(int i = 0; i < N; i++){
+  for(int i = 0; i < N; i++){ // **i equals 0 NOT i == 1 I set it to *Bug * 
     for(int j = 0; j < i; j++){
       //if(pairs[i][1] > pairs[j][0]) **GREAT QUESTION TO ASK IS WB # THAT ARE == 
-      if(pairs[i][1] >= pairs[j][0]) 
-        result[i] = max(result[i], result[j]+1);
-      else
-        result[i] = max(result[i], result[j]);
+     // if(pairs[i][1] >= pairs[j][0]) 
+     // if(pairs[i][0] > pairs[j][1]) ** SO MANY BUGS **
+      if(pairs[i][1] < pairs[j][0]) 
+     //    result[i] = max(result[i], result[j]+1);
+        result[i] = result[j]+1;  
+     // else *Not needed. I noticed this me self :O
+     //   result[i] = max(result[i], result[j]);
+     //   result[i] = result[j];
     }
   }
   
@@ -62,7 +65,9 @@ int findLongestChain(std::vector<std::vector<int>> &pairs)
 //sort on basis of first number in pairs
 static bool cmp(std::vector<int> &a, std::vector<int> &b)
 {
-  return a[0] < b[0];
+//return a[0] < b[0]; * Understanding why things like this are is the next step
+//  return a[1] < b[1];
+  return a[1] > b[1];
 }
 
 int main()
