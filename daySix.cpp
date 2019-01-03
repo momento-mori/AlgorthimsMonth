@@ -26,6 +26,13 @@
 bool canPartition(std::vector<int> &arr)
 {
   int sum = 0;
+ 
+  std::sort(arr.begin(), arr.end());
+  int accumulate = (arr.begin(), arr.end(), 0);
+  int max = max_element(arr.begin(), arr.end());
+  if(max > (accumulate/2) )
+    return false;
+
   for(const auto &K : arr){
     sum += K;
   }
