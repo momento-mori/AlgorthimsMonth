@@ -19,8 +19,8 @@
 int maximalSquare(std::vector<std::vector<char>> &matrix)
 {
   
-  int rows = matrix[0].empty();
-  int cols = mmatrix.empty();
+  int rows = matrix[0].size();
+  int cols = matrix.size();
   if(rows || cols)
     return 0;
 

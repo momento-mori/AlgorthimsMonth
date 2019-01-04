@@ -33,7 +33,7 @@ ListNode *mergeLists(ListNode *l1, ListNode *l2)
   result = &sentinel;
 
   while(l1 && l2){
-    if(l1-val <= l2->val){
+    if(l1->val <= l2->val){
       result->next = l1;
       l1 = l1->next;
     }

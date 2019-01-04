@@ -28,7 +28,7 @@ std::vector<std::vector<int>> subsets(std::vector<int> &nums)
 {
   std::vector<std::vector<int>> result;
   std::vector<int> subset;
-  backTrackinn(result, nums, 0, subset);
+  backTracking(result, nums, 0, subset);
   return result;
 }
 
